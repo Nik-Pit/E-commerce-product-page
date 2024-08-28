@@ -9,3 +9,4 @@ navBtn.addEventListener("click", () => {
 navBar.addEventListener("mouseleave", () => {
   navBar.classList.add("hidden");
 });
+// SearchBar

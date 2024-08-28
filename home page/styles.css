@@ -8,9 +8,8 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: url("/images/Here_is_a_theater_to_unfold_an_outstanding_drama__and_the_characters_are_book_lovers_sitting_on_the_soft_couch_or_standing_beside_the_bookshelves._0004.jpg");
+  background-image: url(/images/bookstore.jpg);
   background-position: center center;
-
   font-family: "Indie Flower", cursive;
   font-weight: 300;
   font-style: normal;
@@ -74,6 +73,9 @@ label {
   right: 4px;
   top: 6px;
   transition: 0.4s;
+}
+#search-img:hover {
+  cursor: pointer;
 }
 #search-book:focus + #search-img {
   opacity: 0;

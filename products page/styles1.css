@@ -3,15 +3,54 @@
   margin: 0;
   padding: 0;
 }
-
-.product-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 2rem;
+body {
+  background-color: #54b3d6;
+  font-family: "Indie Flower", cursive;
+  font-weight: 300;
+  font-style: normal;
 }
 
-.product-item {
+/*Header*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #9fd3c7;
+  height: 4rem;
+}
+#logo-img {
+  height: 6rem;
+}
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-links li {
+  list-style: none;
+  margin: 0 45px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  transition: color 0.4s ease;
+}
+
+.nav-links li a:hover {
+  color: #54b3d6;
+  text-decoration: underline;
+}
+/*Books*/
+.books-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 4rem;
+}
+
+.book-item {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -22,14 +61,14 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.product-item img {
+.book-item img {
   max-width: 100%;
   height: auto;
   border-bottom: 1px solid #ddd;
   margin-bottom: 1rem;
 }
 
-.product-item button {
+.book-item button {
   background-color: #4caf50;
   color: white;
   border: none;
@@ -38,10 +77,10 @@
   border-radius: 5px;
 }
 
-.product-item button:hover {
+.book-item button:hover {
   background-color: #45a049;
 }
-
+/*Cart Modal*/
 #cart {
   display: flex;
   align-items: center;
@@ -76,13 +115,25 @@
   text-align: center;
 }
 @media (max-width: 600px) {
-  .product-list {
+  .books-list {
     flex-direction: column;
     align-items: center;
   }
 
-  .product-item {
+  .book-item {
     width: 100%;
     max-width: 300px;
   }
+}
+/*Footer*/
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 0.2rem;
+  margin-bottom: 0;
+}
+
+.hidden {
+  display: none;
 }
