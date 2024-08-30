@@ -1,4 +1,5 @@
 "use strict";
+/////////////////////////////////////////////////////////////////////////////////////////////////
 // Books Data
 export const books = [
   {
@@ -43,41 +44,46 @@ export const books = [
   },
   {
     id: 6,
-    name: "Book 6",
+    name: "Thursday Murder Club",
     price: 19.99,
-    image: "https://via.placeholder.com/150",
-    description: "This is yet another great book.",
+    image: "/images/book6.webp",
+    description:
+      "In a peaceful retirement village, four unlikely friends meet up once a week to investigate unsolved murders.But when a brutal killing takes place on their very doorstep, the Thursday Murder Club find themselves in the middle of their first live case.Elizabeth, Joyce, Ibrahim and Ron might be pushing eighty but they still have a few tricks up their sleeves.Can our unorthodox but brilliant gang catch the killer before it's too late?",
   },
   {
     id: 7,
-    name: "Book 7",
+    name: "Penguin Book of Norse Myths",
     price: 29.99,
-    image: "https://via.placeholder.com/150",
-    description: "This is yet another great book.",
+    image: "/images/book7-.avif",
+    description:
+      "'Burning ice, biting flame; that is how life began'The extraordinary Scandinavian myth cycle is one of the most enduring, exciting, dramatic and compelling of the world's great stories.The Penguin Book of the Norse Myths compellingly retells these stories for the modern reader, taking us from the creation of the world through the building of Asgard's Wall to the final end in Ragnarok. You'll discover how Thor got his hammer and how Odin lost his eye, the terrible price of binding the wolf Fenrir and why Loki the trickster can never be trusted.The Norse myths are as thrilling to read as they are of vast cultural and historical importance. In this gripping book Kevin Crossley-Holland brings alive the passion, cruelty and heroism of these unforgettable stories.",
   },
   {
     id: 8,
-    name: "Book 8",
+    name: "Master and Commander",
     price: 9.99,
-    image: "https://via.placeholder.com/150",
-    description: "This is yet another great book.",
+    image: "/images/book8.avif",
+    description:
+      "In this, the first of Patrick O'Brian's much lauded Aubrey-Maturin novels, discover a vibrant world conjured by a master storyteller, rich with detail and character.1800. Napoleon Bonaparte is the biggest threat to peace yet seen.Newly promoted to command of his first ship, Captain Jack Aubrey, along with his crew, and new friend and ship's surgeon Stephen Maturin, must patrol a Mediterranean fraught with peril but rich with rewards. A glimpse of white sails on the horizon could mean a prize to be taken - or a fight for survival.",
   },
   {
     id: 9,
-    name: "Book 9",
-    price: 19.99,
-    image: "https://via.placeholder.com/150",
-    description: "This is yet another great book.",
+    name: "The Picture of Dorian Gray",
+    price: 9.99,
+    image: "/images/book9.avif",
+    description:
+      "With an Introduction and Notes by John M.L. Drew, University of Buckingham. Wilde's only novel, first published in 1890, is a brilliantly designed puzzle, intended to tease conventional minds with its exploration of the myriad interrelationships between art, life, and consequence. From its provocative Preface, challenging the reader to believe in 'art for art's sake', to its sensational conclusion, the story self-consciously experiments with the notion of sin as an element of design. Yet Wilde himself underestimated the consequences of his experiment, and its capacity to outrage the Victorian establishment. Its words returned to haunt him in his court appearances in 1895, and he later recalled the 'note of doom' which runs like 'a purple thread' through its carefully crafted prose.",
   },
   {
     id: 10,
-    name: "Book 10",
+    name: "The Forever Dog",
     price: 29.99,
-    image: "https://via.placeholder.com/150",
-    description: "This is yet another great book.",
+    image: "/images/book10.avif",
+    description:
+      "Two of the world's most popular and trusted pet care advocates reveal new science to teach us how to delay ageing and provide a long, happy, healthy life for our canine companions. The definitive, cutting-edge guide for every dog parent.Like their human parents, dogs have been getting sicker over the past few decades. Why? Scientists are beginning to understand that the diseases affecting humans - cancer, obesity, diabetes, organ degeneration, and autoimmune disorders - also afflict canines.As a result, our canine companions are vexed with health problems throughout much of their lives and have shorter life spans. Since our pets can't make health and lifestyle decisions for themselves, it's up to pet parents to make smart choices for their dogs' lasting vitality and health.The Forever Dog gives us the tools to protect our four-legged friends. Rodney Habib and Dr. Karen Becker talked to top geneticists, microbiologists, and researchers, and interviewed people around the world whose dogs have lived into their 20s and even 30s. The result is this unprecedented and comprehensive guide, filled with practical information, invaluable advice, and inspiring stories about dogs and the people who love them.The Forever Dog plan focuses on:* diet and nutrition* movement* stress reduction* tailoring care to the genetic predisposition of particular breeds or mixes* recipes and types of food - and what the commercial manufacturers don't want us to know* tons of practical tips* how exercise, environmental toxins, and our lifestyles affect a dog's overall health.Global medical breakthroughs have expanded our choices for canine health. The Forever Dog is the definitive dog-care guide that gives us the knowledge we need to make wise choices, and to keep our dogs healthy and happy for years to come.",
   },
 ];
-
+/////////////////////////////////////////////////////////////////////////////////////////////////
 // Display books on the page
 function displayBooks() {
   const booksList = document.querySelector(".books-list");
@@ -142,6 +148,7 @@ function openModal(description) {
 // Initialize the books display
 displayBooks();
 
+/////////////////////////////////////////////////////////////////////////////////////////////////
 // // Cart state
 let cart = [];
 // // Add product to cart
@@ -156,33 +163,50 @@ function updateCartCount() {
   const cartCount = document.getElementById("cart-count");
   cartCount.textContent = cart.length;
 }
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Show the cart modal
+// Event listeners
+const cartBtn = document.getElementById("viewCart");
+const closeCartBtn = document.getElementById("close-cart");
 
-// // Show the cart modal
-// function showCart() {
-//   const cartModal = document.getElementById("cart-modal");
-//   const cartItems = document.getElementById("cart-items");
-//   const cartTotal = document.getElementById("cart-total");
+cartBtn.addEventListener("click", showCart);
+closeCartBtn.addEventListener("click", hideCart);
+function showCart() {
+  const cartModal = document.getElementById("cart-modal");
+  const cartItems = document.getElementById("cart-items");
+  const cartTotal = document.getElementById("cart-total");
 
-//   cartItems.innerHTML = "";
-//   let total = 0;
+  cartModal.classList.remove("hidden");
+  cartModal.style.display = "block";
 
-//   cart.forEach((item) => {
-//     const cartItem = document.createElement("li");
-//     cartItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
-//     cartItems.appendChild(cartItem);
-//     total += item.price;
-//   });
+  cartItems.innerHTML = "";
 
-//   cartTotal.textContent = total.toFixed(2);
-//   cartModal.classList.remove("hidden");
-// }
+  let total = 0;
 
-// // Hide the cart modal
-// function hideCart() {
-//   const cartModal = document.getElementById("cart-modal");
-//   cartModal.classList.add("hidden");
-// }
+  cart.forEach((book) => {
+    const cartItem = document.createElement("li");
+    cartItem.textContent = `${book.name} --- ${book.price.toFixed(2)}€`;
+    cartItems.appendChild(cartItem);
+    total += book.price;
+  });
 
-// // Event listeners
-// document.getElementById("cart").addEventListener("click", showCart);
-// document.getElementById("close-cart").addEventListener("click", hideCart);
+  cartTotal.textContent = total.toFixed(2);
+}
+
+// Hide the cart modal
+function hideCart() {
+  const cartModal = document.getElementById("cart-modal");
+  cartModal.style.display = "none";
+
+  window.onclick = (e) => {
+    if (e.target == cartModal) {
+      cartModal.style.display = "none";
+    }
+  };
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      cartModal.style.display = "none";
+    }
+  });
+}

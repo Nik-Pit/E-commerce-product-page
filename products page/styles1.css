@@ -17,6 +17,8 @@ header {
   align-items: center;
   background-color: #9fd3c7;
   height: 4rem;
+  position: sticky;
+  top: 0%;
 }
 #logo-img {
   height: 6rem;
@@ -64,7 +66,7 @@ header {
 .book-item:hover {
   cursor: pointer;
   transform: scale(1.3, 1.3);
-  transition: ease-in 0.3s;
+  transition: ease-in-out 0.2s;
 }
 
 .book-item img {
@@ -140,35 +142,40 @@ header {
 }
 
 #cart-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   display: none;
 }
 
 .cart-content {
-  background-color: #fff;
+  background-color: #9fd3c7;
   padding: 2rem;
   border-radius: 10px;
+  position: relative;
+  top: 40%;
+  left: 40%;
   width: 300px;
   text-align: center;
 }
-@media (max-width: 600px) {
-  .books-list {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .book-item {
-    width: 100%;
-    max-width: 300px;
-  }
+#cart-items li {
+  list-style: square;
+}
+#checkout-button a {
+  text-decoration: none;
+}
+#checkout-button:hover {
+  background-color: #9fd3c7;
+}
+#close-cart:hover {
+  cursor: pointer;
+  background-color: red;
 }
 /*Footer*/
 footer {
@@ -181,4 +188,15 @@ footer {
 
 .hidden {
   display: none;
+}
+@media (max-width: 600px) {
+  .books-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .book-item {
+    width: 100%;
+    max-width: 300px;
+  }
 }
