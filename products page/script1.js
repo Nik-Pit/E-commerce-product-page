@@ -150,12 +150,13 @@ displayBooks();
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // // Cart state
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 // // Add product to cart
 function addToCart(bookId) {
   const book = books.find((b) => b.id === bookId);
   cart.push(book);
   updateCartCount();
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 // // Update cart item count
@@ -163,6 +164,7 @@ function updateCartCount() {
   const cartCount = document.getElementById("cart-count");
   cartCount.textContent = cart.length;
 }
+updateCartCount();
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // Show the cart modal
 // Event listeners
@@ -185,28 +187,34 @@ function showCart() {
 
   cart.forEach((book) => {
     const cartItem = document.createElement("li");
+    const cartItemInput = document.createElement("button");
     cartItem.textContent = `${book.name} --- ${book.price.toFixed(2)}€`;
+    cartItemInput.textContent = "❌";
+    cartItemInput.classList.add("remove-book");
+    cartItems.appendChild(cartItemInput);
     cartItems.appendChild(cartItem);
     total += book.price;
+
+    //Remove a book from the cart
+    cartItemInput.addEventListener("click");
   });
 
   cartTotal.textContent = total.toFixed(2);
 }
 
 // Hide the cart modal
+const cartModal = document.getElementById("cart-modal");
 function hideCart() {
-  const cartModal = document.getElementById("cart-modal");
   cartModal.style.display = "none";
-
-  window.onclick = (e) => {
-    if (e.target == cartModal) {
-      cartModal.style.display = "none";
-    }
-  };
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      cartModal.style.display = "none";
-    }
-  });
 }
+window.onclick = (e) => {
+  if (e.target == cartModal) {
+    cartModal.style.display = "none";
+  }
+};
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    cartModal.style.display = "none";
+  }
+});

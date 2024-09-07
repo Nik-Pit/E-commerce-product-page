@@ -159,10 +159,12 @@ header {
   padding: 2rem;
   border-radius: 10px;
   position: relative;
-  top: 40%;
+  top: 25%;
   left: 40%;
-  width: 300px;
+  width: 400px;
   text-align: center;
+  max-height: 75%;
+  overflow-y: auto;
 }
 #cart-items li {
   list-style: square;
@@ -176,6 +178,17 @@ header {
 #close-cart:hover {
   cursor: pointer;
   background-color: red;
+}
+.remove-book {
+  background-color: #000000;
+  width: fit-content;
+  height: 20px;
+  position: absolute;
+  right: 15%;
+}
+.remove-book:hover {
+  cursor: pointer;
+  background-color: aliceblue;
 }
 /*Footer*/
 footer {
