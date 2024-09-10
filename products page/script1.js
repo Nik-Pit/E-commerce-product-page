@@ -166,13 +166,16 @@ function updateCartCount() {
 }
 updateCartCount();
 /////////////////////////////////////////////////////////////////////////////////////////////////
-// Show the cart modal
+//Cart modal
+
 // Event listeners
 const cartBtn = document.getElementById("viewCart");
 const closeCartBtn = document.getElementById("close-cart");
 
 cartBtn.addEventListener("click", showCart);
 closeCartBtn.addEventListener("click", hideCart);
+
+// Show the cart modal
 function showCart() {
   const cartModal = document.getElementById("cart-modal");
   const cartItems = document.getElementById("cart-items");
@@ -185,18 +188,23 @@ function showCart() {
 
   let total = 0;
 
-  cart.forEach((book) => {
+  cart.forEach((book, bookIndex) => {
     const cartItem = document.createElement("li");
-    const cartItemInput = document.createElement("button");
     cartItem.textContent = `${book.name} --- ${book.price.toFixed(2)}€`;
+
+    const cartItemInput = document.createElement("button");
     cartItemInput.textContent = "❌";
     cartItemInput.classList.add("remove-book");
     cartItems.appendChild(cartItemInput);
     cartItems.appendChild(cartItem);
     total += book.price;
-
-    //Remove a book from the cart
-    cartItemInput.addEventListener("click");
+    //Function to remove a book from the cart
+    cartItemInput.addEventListener("click", () => {
+      cart.splice(bookIndex, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      showCart();
+      updateCartCount();
+    });
   });
 
   cartTotal.textContent = total.toFixed(2);
