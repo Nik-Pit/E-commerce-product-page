@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="stylescheck.css" />
     <title>Checkout Page</title>
   </head>
   <body>
@@ -15,25 +21,27 @@
           <ul class="nav-links">
             <li><a href="/home page/index.html">Home</a></li>
             <li><a href="/products page/index1.html">Books</a></li>
-
             <li><a href="#">Checkout</a></li>
           </ul>
         </nav>
       </div>
-      <div><span>🛒 Cart</span> <span id="cart-count">0</span></div>
+      <div></div>
     </header>
 
     <!-- Checkout Form -->
     <main>
       <h1>Checkout</h1>
+      <hr />
       <div id="checkout-summary">
         <h2>Order Summary</h2>
+        <hr />
         <ul id="checkout-items"></ul>
-        <p>Total: <span id="checkout-total">0.00</span>€</p>
+        <p class="total">Total: <span id="checkout-total">0.00</span>€</p>
       </div>
 
       <form id="checkout-form">
         <h2>Shipping Information</h2>
+        <hr />
         <label for="full-name">Full Name:</label>
         <input type="text" id="full-name" required />
 
@@ -44,12 +52,13 @@
         <input type="text" id="city" required />
 
         <label for="postal-code">Postal Code:</label>
-        <input type="text" id="postal-code" required />
+        <input type="number" id="postal-code" required />
 
         <label for="country">Country:</label>
         <input type="text" id="country" required />
 
         <h2>Payment Information</h2>
+        <hr />
         <label for="card-number">Card Number:</label>
         <input type="text" id="card-number" required />
 
@@ -65,9 +74,9 @@
 
     <!-- Footer -->
     <footer>
-      <p>&copy; 2024 The Bookstore</p>
+      <p>&copy; 2024 Bookstore</p>
     </footer>
 
-    <script src="checkout.js"></script>
+    <script src="checkoutscript.js"></script>
   </body>
 </html>

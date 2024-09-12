@@ -184,7 +184,7 @@ header {
   width: fit-content;
   height: 20px;
   position: absolute;
-  right: 15%;
+  right: 10%;
 }
 .remove-book:hover {
   cursor: pointer;
