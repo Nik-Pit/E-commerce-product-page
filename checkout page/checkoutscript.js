@@ -26,7 +26,7 @@ const checkOutForm = document.getElementById("checkout-form");
 checkOutForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  // Collect form data
+  // Form data
   const fullName = document.getElementById("full-name").value;
   const address = document.getElementById("address").value;
   const city = document.getElementById("city").value;
@@ -39,5 +39,4 @@ checkOutForm.addEventListener("submit", (e) => {
   window.location.href = "/home page/index.html";
 });
 
-// Initialize the checkout summary on page load
 checkoutSummary();
